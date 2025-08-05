@@ -1,0 +1,46 @@
+﻿@model IEnumerable<HostelManagement.Models.Student>
+
+@{
+    ViewData["Title"] = "Students";
+}
+
+<div class="container py-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="text-dark">Student List</h2>
+        <a class="btn btn-outline-primary btn-sm shadow-sm" asp-action="Create">
+            <i class="bi bi-plus-lg"></i> Add New Student
+        </a>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-hover table-bordered table-striped align-middle shadow-sm">
+            <thead class="table-dark">
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.First().Name)</th>
+                    <th>@Html.DisplayNameFor(model => model.First().RoomNumber)</th>
+                    <th>@Html.DisplayNameFor(model => model.First().Department)</th>
+                    <th>@Html.DisplayNameFor(model => model.First().AdmissionDate)</th>
+                    <th style="width: 220px;">Actions</th> <!-- Increased width -->
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var student in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(m => student.Name)</td>
+                        <td>@Html.DisplayFor(m => student.RoomNumber)</td>
+                        <td>@Html.DisplayFor(m => student.Department)</td>
+                        <td>@student.AdmissionDate.ToShortDateString()</td>
+                        <td>
+                            <div class="d-flex gap-1 flex-wrap">
+                                <a class="btn btn-outline-info btn-sm" asp-action="Details" asp-route-id="@student.Id">Details</a>
+                                <a class="btn btn-outline-warning btn-sm" asp-action="Edit" asp-route-id="@student.Id">Edit</a>
+                                <a class="btn btn-outline-danger btn-sm" asp-action="Delete" asp-route-id="@student.Id">Delete</a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

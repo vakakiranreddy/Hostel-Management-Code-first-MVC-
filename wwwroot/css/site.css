@@ -1,0 +1,21 @@
+body {
+    background-color: #f7f9fc;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.table-hover tbody tr:hover {
+    background-color: #e0f7fa;
+    transition: all 0.3s ease;
+}
+
+.btn {
+    transition: 0.3s ease-in-out;
+}
+
+    .btn:hover {
+        transform: scale(1.05);
+    }
+
+h2, h4 {
+    color: #2c3e50;
+}
