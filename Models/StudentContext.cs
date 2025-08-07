@@ -5,6 +5,7 @@ namespace HostelManagement.Models
         
     {
         public DbSet<Student> Students { get; set; }
+        public DbSet<Faculty> AllFaculty { get; set; }
 
         public StudentContext(DbContextOptions<StudentContext> options) : base(options) { }
 
